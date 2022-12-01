@@ -1,6 +1,7 @@
 import
   strutils,
-  aoc2022pkg/benchmark
+  aoc2022pkg/benchmark,
+  aoc2022pkg/utils
 
 proc solve(input: string): tuple[p1: string, p2: string] =
   let p1 = "INCOMPLETE"
@@ -17,14 +18,13 @@ proc partTwo(input: string): string =
 when isMainModule:
   echo "### DAY 00 ###"
 
-  # strip is convenient for splitting lines, but can be harmful for parsers
-  let input = stdin.readAll.strip
+  let input = stdin.readInput
 
   echo "### INPUT ###"
   echo input
   echo "### END ###"
 
-  # do parsing here
-  let parsed = input
+  bench(partOne(parsed), partTwo(parsed)):
+    # do any prelim parsing or setup here
+    let parsed = input.strip # strip is nice for basic line splits but makes real parsers harder
 
-  bench(partOne(parsed), partTwo(parsed))

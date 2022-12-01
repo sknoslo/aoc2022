@@ -1,8 +1,12 @@
 import
   times
 
-template bench*(p1, p2: typed) =
+template bench*(p1, p2, setup: untyped) =
   block:
+    let setupstart = getTime()
+    setup
+    let setupelapsed = getTime() - setupstart
+    echo "\nsetup: " & $setupelapsed
     let p1start = getTime()
     let p1result = p1
     echo "\nP1: " & p1Result
@@ -14,4 +18,4 @@ template bench*(p1, p2: typed) =
     let p2elapsed = getTime() - p2start
     echo "in: " & $p2elapsed
 
-    echo "\ntotal: " & $(p1elapsed + p2elapsed)
+    echo "\ntotal: " & $(setupelapsed + p1elapsed + p2elapsed)

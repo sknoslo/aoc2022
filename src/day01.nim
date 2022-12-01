@@ -1,24 +1,26 @@
 import
+  algorithm,
   strutils,
-  aoc2022pkg/benchmark
+  sequtils,
+  sugar,
+  math,
+  aoc2022pkg/benchmark,
+  aoc2022pkg/utils
 
-proc partOne(input: string): string =
-  "INCOMPLETE"
+proc partOne(input: seq[seq[int]]): string =
+  $input.map(cals => cals.sum).max
 
-proc partTwo(input: string): string =
-  "INCOMPLETE"
+proc partTwo(input: seq[seq[int]]): string =
+  $input.map(cals => cals.sum).sorted[^3..^1].sum
 
 when isMainModule:
   echo "### DAY 01 ###"
 
-  # strip is convenient for splitting lines, but can be harmful for parsers
-  let input = stdin.readAll.strip
+  let input = stdin.readInput
 
   echo "### INPUT ###"
   echo input
   echo "### END ###"
 
-  # do parsing here
-  let parsed = input
-
-  bench(partOne(parsed), partTwo(parsed))
+  bench(partOne(parsed), partTwo(parsed)):
+    let parsed = input.strip.split("\n\n").map(g => g.splitLines.map(parseInt))
