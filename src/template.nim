@@ -3,12 +3,6 @@ import
   aoc2022pkg/benchmark,
   aoc2022pkg/utils
 
-proc solve(input: string): tuple[p1: string, p2: string] =
-  let p1 = "INCOMPLETE"
-  let p2 = "INCOMPLETE"
-
-  (p1, p2)
-
 proc partOne(input: string): string =
   "INCOMPLETE"
 
