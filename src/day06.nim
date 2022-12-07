@@ -21,7 +21,7 @@ proc partTwo(input: string): string =
   $curr
 
 when isMainModule:
-  echo "### DAY 00 ###"
+  echo "### DAY 06 ###"
 
   let input = stdin.readInput
 
