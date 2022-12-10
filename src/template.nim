@@ -1,5 +1,5 @@
 import
-  strutils,
+  std/strutils,
   aoc2022pkg/benchmark,
   aoc2022pkg/utils
 
